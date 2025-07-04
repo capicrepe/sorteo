@@ -206,8 +206,8 @@ function jugar() {
 
   const intervaloRuleta = setInterval(() => {
     slot1.src = imagenesPremio[Math.floor(Math.random() * imagenesPremio.length)];
-   slot1.src = imagenesPremio[Math.floor(Math.random() * imagenesPremio.length)];
-     slot1.src = imagenesPremio[Math.floor(Math.random() * imagenesPremio.length)];
+   slot2.src = imagenesPremio[Math.floor(Math.random() * imagenesPremio.length)];
+     slot3.src = imagenesPremio[Math.floor(Math.random() * imagenesPremio.length)];
     if (tiempo >= duracion) {
       clearInterval(intervaloRuleta);
 
