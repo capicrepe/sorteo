@@ -205,24 +205,27 @@ function jugar() {
   let tiempo = 0;
 
   const intervaloRuleta = setInterval(() => {
-    slot1.src = imagenesPremio[Math.floor(Math.random() * imagenesPremio.length)];
-   slot2.src = imagenesPremio[Math.floor(Math.random() * imagenesPremio.length)];
-     slot3.src = imagenesPremio[Math.floor(Math.random() * imagenesPremio.length)];
-    if (tiempo >= duracion) {
-      clearInterval(intervaloRuleta);
+  slot1.src = imagenesPremio[Math.floor(Math.random() * imagenesPremio.length)];
+  slot2.src = imagenesPremio[Math.floor(Math.random() * imagenesPremio.length)];
+  slot3.src = imagenesPremio[Math.floor(Math.random() * imagenesPremio.length)];
 
-      // Imagen final aleatoria en cada slot
-      const s1 = imagenesPremio[Math.floor(Math.random() * imagenesPremio.length)];
-      const s2 = imagenesPremio[Math.floor(Math.random() * imagenesPremio.length)];
-      const s3 = imagenesPremio[Math.floor(Math.random() * imagenesPremio.length)];
+  tiempo += intervalo;  // No olvides aumentar el tiempo para que termine el setInterval
 
-      slot1.src = 'img/' + s1;
-      slot2.src = 'img/' + s2;
-      slot3.src = 'img/' + s3;
+  if (tiempo >= duracion) {
+    clearInterval(intervaloRuleta);
 
-      mostrarResultado(s1, s2, s3);
-    }
-  }, intervalo);
+    // Imagen final aleatoria en cada slot
+    const s1 = imagenesPremio[Math.floor(Math.random() * imagenesPremio.length)];
+    const s2 = imagenesPremio[Math.floor(Math.random() * imagenesPremio.length)];
+    const s3 = imagenesPremio[Math.floor(Math.random() * imagenesPremio.length)];
+
+    slot1.src = s1;
+    slot2.src = s2;
+    slot3.src = s3;
+
+    mostrarResultado(s1, s2, s3);
+  }
+}, intervalo);
 }
 
 function mostrarResultado(s1, s2, s3) {
