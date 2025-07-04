@@ -174,22 +174,22 @@ function cargarColumnas() {
   const total = imagenesFondo.length * cantidadRepetir;
   for (let i = 0; i < total; i++) {
     const img1 = document.createElement('img');
-    img1.src = 'img/' + imagenesFondo[i % imagenesFondo.length];
+    img1.src = imagenesFondo[i % imagenesFondo.length];
     document.getElementById('col1').appendChild(img1);
 
     const img2 = document.createElement('img');
-    img2.src = 'img/' + imagenesFondo[i % imagenesFondo.length];
+    img2.src = imagenesFondo[i % imagenesFondo.length];
     document.getElementById('col2').appendChild(img2);
 
     const img3 = document.createElement('img');
-    img3.src = 'img/' + imagenesFondo[i % imagenesFondo.length];
+    img3.src = imagenesFondo[i % imagenesFondo.length];
     document.getElementById('col3').appendChild(img3);
   }
 }
 window.onload = () => {
-  document.getElementById('slot1').src = 'img/' + imagenInicio;
-  document.getElementById('slot2').src = 'img/' + imagenInicio;
-  document.getElementById('slot3').src = 'img/' + imagenInicio;
+ document.getElementById('slot1').src = imagenInicio;
+document.getElementById('slot2').src = imagenInicio;
+document.getElementById('slot3').src = imagenInicio;
   cargarColumnas();
 };
 cargarColumnas();
@@ -205,10 +205,9 @@ function jugar() {
   let tiempo = 0;
 
   const intervaloRuleta = setInterval(() => {
-    slot1.src = 'img/' + imagenesPremio[Math.floor(Math.random() * imagenesPremio.length)];
-    slot2.src = 'img/' + imagenesPremio[Math.floor(Math.random() * imagenesPremio.length)];
-    slot3.src = 'img/' + imagenesPremio[Math.floor(Math.random() * imagenesPremio.length)];
-    tiempo += intervalo;
+    slot1.src = imagenesPremio[Math.floor(Math.random() * imagenesPremio.length)];
+   slot1.src = imagenesPremio[Math.floor(Math.random() * imagenesPremio.length)];
+     slot1.src = imagenesPremio[Math.floor(Math.random() * imagenesPremio.length)];
     if (tiempo >= duracion) {
       clearInterval(intervaloRuleta);
 
