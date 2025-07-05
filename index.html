@@ -132,6 +132,49 @@
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
   }
+  .popup-ganador {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(41, 26, 1, 0.964);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    z-index: 999;
+    display: none; /* Oculto por defecto */
+    animation: aparecer 0.5s ease forwards;
+}
+
+.popup-ganador h2 {
+    font-size: 24px;
+    color: #FFD700;
+    margin-bottom: 20px;
+}
+
+.popup-ganador img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid #FFD700;
+    margin-bottom: 20px;
+}
+
+.popup-ganador p {
+    text-align: center;
+    font-size: 18px;
+    color: #FFD700;
+    padding: 0 20px;
+}
+
+@keyframes aparecer {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
 </style>
 </head>
 <body>
@@ -163,9 +206,15 @@
   <div class="mensaje" id="mensaje"></div>
 
   <div class="contacto">
-    <a class="linkContacto" href="https://wa.me/593992561043" target="_blank">Contactanos +593 99 256 1043</a>
+    <a class="linkContacto" href="https://capicrepe.github.io/Capicrepes-bubbletea/" target="_blank">MENÚ</a>
     <a class="linkContacto" href="https://www.instagram.com/capicrepes.uio?utm_source=ig_web_button_share_sheet&igsh=cGtwb3c2NTc5ejA1" target="_blank">INSTAGRAM</a>
    <a class="linkContacto" href="https://maps.app.goo.gl/gDxfnVrxDJQ1StTN8" target="_blank">¡COMO LLEGAR!</a>
+</div>
+<div id="popupGanador" class="popup-ganador">
+    <h2>🎉 ¡Felicidades! 🎉</h2>
+    <img id="imagenGanadora" src="">
+    <p>🎉 ¡HAS GANADO EL SEGUNDO CON EL 50% DESCUENTO! 🎉<br>
+    Pide o acercate con la captura y lleva tu premio</p>
 </div>
 
 </div>
@@ -229,6 +278,7 @@ function jugar() {
     slot3.src = s3;
 
     mostrarResultado(s1, s2, s3);
+    
   }
 }, intervalo);
 }
@@ -237,13 +287,33 @@ function mostrarResultado(s1, s2, s3) {
   const mensaje = document.getElementById('mensaje');
 
   if (s1 === s2 && s2 === s3) {
-    mensaje.innerHTML = '🎉 ¡HAS GANADO EL SEGUNDO CON EL 40% DESCUENTO! 🎉';
+    mensaje.innerHTML = '🎉 ¡HAS GANADO EL SEGUNDO CON EL 50% DESCUENTO! 🎉<br>Pide o acercate con la captura de pantalla y reclama tu premio';
+  } else if (s1 === s2 || s2 === s3 || s1 === s3) {
+    mensaje.innerHTML = 'Casi lo logras... ¡Sigue intentando!';
+  } else {
+    mensaje.innerHTML = '¡Suerte para la próxima!';
+  }
+}function mostrarResultado(s1, s2, s3) {
+  const mensaje = document.getElementById('mensaje');
+
+  if (s1 === s2 && s2 === s3) {
+    mensaje.innerHTML = '🎉 ¡HAS GANADO EL SEGUNDO CON EL 50% DESCUENTO! 🎉<br>Pide o acercate con la captura y lleva tu premio'; // Ocultamos mensaje antiguo
     mostrarGanador(s1);
   } else if (s1 === s2 || s2 === s3 || s1 === s3) {
     mensaje.innerHTML = 'Casi lo logras... ¡Sigue intentando!';
   } else {
     mensaje.innerHTML = '¡Suerte para la próxima!';
   }
+}
+function mostrarGanador(imagen) {
+    const popup = document.getElementById('popupGanador');
+    const imgGanadora = document.getElementById('imagenGanadora');
+    
+    imgGanadora.src = imagen;
+    popup.style.display = 'flex';
+    
+    // Opcional: cerrar al hacer clic
+    popup.onclick = () => popup.style.display = 'none';
 }
 
 </script>
