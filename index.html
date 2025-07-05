@@ -214,7 +214,7 @@
     <h2>🎉 ¡Felicidades! 🎉</h2>
     <img id="imagenGanadora" src="">
     <p>🎉 ¡HAS GANADO EL SEGUNDO CON EL 50% DESCUENTO! 🎉<br>
-    Pide o acercate con la captura y lleva tu premio</p>
+    Pide o acercate con la captura de pantalla y reclama tu premio</p>
 </div>
 
 </div>
@@ -287,18 +287,8 @@ function mostrarResultado(s1, s2, s3) {
   const mensaje = document.getElementById('mensaje');
 
   if (s1 === s2 && s2 === s3) {
-    mensaje.innerHTML = '🎉 ¡HAS GANADO EL SEGUNDO CON EL 50% DESCUENTO! 🎉<br>Pide o acercate con la captura de pantalla y reclama tu premio.';
-  } else if (s1 === s2 || s2 === s3 || s1 === s3) {
-    mensaje.innerHTML = 'Casi lo logras... ¡Sigue intentando!';
-  } else {
-    mensaje.innerHTML = '¡Suerte para la próxima!';
-  }
-}function mostrarResultado(s1, s2, s3) {
-  const mensaje = document.getElementById('mensaje');
-
-  if (s1 === s2 && s2 === s3) {
-    mensaje.innerHTML = '🎉 ¡HAS GANADO EL SEGUNDO CON EL 50% DESCUENTO! 🎉<br>Pide o acercate con la captura de pantalla y reclama tu premio.'; // Ocultamos mensaje antiguo
-    mostrarGanador(s1);
+    mensaje.innerHTML = '🎉¡HAS GANADO EL SEGUNDO CON EL 50% DESCUENTO! 🎉<br>Pide o acercate con la captura de pantalla y reclama tu premio.'; // Ocultas el mensaje debajo
+    mostrarGanador(s1); // Sale el popup elegante
   } else if (s1 === s2 || s2 === s3 || s1 === s3) {
     mensaje.innerHTML = 'Casi lo logras... ¡Sigue intentando!';
   } else {
