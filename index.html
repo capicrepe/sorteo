@@ -9,7 +9,6 @@
   body {
     margin: 0;
     background: #5D4037;
-    overflow: hidden;
     font-family: Arial, sans-serif;
     color: #fff;
   }
@@ -147,6 +146,7 @@
   <div class="cuadroTitulo">
      <h1>🤣🤣LA CURIOSIDAD MATÓ AL GATO🤣🤣<br> y tu 🫵 ganarás un <br> ¡PREMIO!</h1>
     <p class="subtexto">Descubre qué pasa si haces clic...</p>
+    <p class="subtexto">Valido hasta el 15 de julio</p>
   </div>
   
   <h2 onclick="jugar()">HAZ CLIC AQUÍ PARA GANAR</h2>
@@ -237,7 +237,7 @@ function mostrarResultado(s1, s2, s3) {
   const mensaje = document.getElementById('mensaje');
 
   if (s1 === s2 && s2 === s3) {
-    mensaje.innerHTML = '🎉 ¡HAS GANADO EL SEGUNDO CON EL 50% DESCUENTO! 🎉';
+    mensaje.innerHTML = '🎉 ¡HAS GANADO EL SEGUNDO CON EL 40% DESCUENTO! 🎉';
     mostrarGanador(s1);
   } else if (s1 === s2 || s2 === s3 || s1 === s3) {
     mensaje.innerHTML = 'Casi lo logras... ¡Sigue intentando!';
